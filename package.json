@@ -1,0 +1,10 @@
+{
+  "name": "inquirer_database",
+  "version": "1.0.0",
+  "main": "index.js",
+
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.6.0"
+  }
+}
