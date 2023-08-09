@@ -129,6 +129,49 @@ const addEmployee = () => {
 });
 }
 
+// function for updating employee
+const updateEmployeeRole = () => {
+    // First, retrieve a list of employees to choose from
+    const query = 'SELECT id, CONCAT(first_name, " ", last_name) AS employee_name FROM employee';
+    connection.query(query, (err, employees) => {
+        if (err) {
+            console.error('Error retrieving employees:', err.message);
+            promptuser();
+            return;
+        }
+
+        // Prompt user to choose an employee
+        inquirer.prompt([
+            {
+                type: 'list',
+                message: 'Select an employee to update:',
+                name: 'employeeId',
+                choices: employees.map(employee => ({ name: employee.employee_name, value: employee.id }))
+            },
+            {
+                type: 'input',
+                message: 'Enter the new role ID for the employee:',
+                name: 'newRoleId'
+            }
+        ]).then((answers) => {
+            const employeeId = parseInt(answers.employeeId);
+            const newRoleId = parseInt(answers.newRoleId);
+
+            const updateQuery = 'UPDATE employee SET role_id = ? WHERE id = ?';
+            connection.query(updateQuery, [newRoleId, employeeId], (updateErr) => {
+                if (updateErr) {
+                    console.error('Error updating employee role:', updateErr.message);
+                } else {
+                    console.log('Employee role updated successfully.');
+                }
+                promptuser();
+            });
+        });
+    });
+};
+
+
+
 // view department function
    const viewDepartments = ()=>{
     const query = 'SELECT * FROM department;';
