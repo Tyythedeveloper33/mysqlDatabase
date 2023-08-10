@@ -40,7 +40,7 @@ WHEN user choses to update an employee role, THEN user is prompted to select an 
 
 ## Mock-Up
 
-[![A video thumbnail shows the command-line employee management application with a play button overlaying the view.](./Assets/12-sql-homework-video-thumbnail.png)](https://2u-20.wistia.com/medias/2lnle7xnpk)
+[![A video thumbnail shows the command-line employee management application with a play button overlaying the view.](./Assets/12-sql-homework-video-thumbnail.png)](https://drive.google.com/file/d/1FnfpPru3Q_4Qs7OO0ShQMiatn9PKMSdX/view)
 
 ## Getting Started
 
